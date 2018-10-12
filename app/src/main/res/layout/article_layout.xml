@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/themeBk"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:background="@drawable/title_bar_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/title_bar_plr"
+        android:paddingRight="@dimen/title_bar_plr">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_input_m_lr"
+            android:text="@string/article"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_bar_font_s" />
+
+    </LinearLayout>
+
+    <!--文章分类-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!--推荐文章-->
+        <LinearLayout
+            android:id="@+id/recommend"
+            style="@style/articleClassify">
+
+            <TextView
+                style="@style/articleClassifyItem"
+                android:drawableTop="@mipmap/recommend"
+                android:text="@string/recommendArticle" />
+
+        </LinearLayout>
+
+        <!--植物种植-->
+        <LinearLayout
+            android:id="@+id/zhiwuzhongzhi"
+            style="@style/articleClassify">
+
+            <TextView
+                style="@style/articleClassifyItem"
+                android:drawableTop="@mipmap/zhiwuzhognzhi"
+                android:text="@string/zhiwuzhongzhi" />
+
+        </LinearLayout>
+
+        <!--趣味植物-->
+        <LinearLayout
+            android:id="@+id/quweizhiwu"
+            style="@style/articleClassify">
+
+            <TextView
+                style="@style/articleClassifyItem"
+                android:drawableTop="@mipmap/quweizhiwu"
+                android:text="@string/quweizhiwu" />
+
+        </LinearLayout>
+
+        <!--植物资讯-->
+        <LinearLayout
+            android:id="@+id/zhiwuzixun"
+            style="@style/articleClassify">
+
+            <TextView
+                style="@style/articleClassifyItem"
+                android:drawableTop="@mipmap/zhiwuzixun"
+                android:text="@string/zhiwuzixun" />
+
+        </LinearLayout>
+
+        <!--植物知识-->
+        <LinearLayout
+            android:id="@+id/zhiwuzhishi"
+            style="@style/articleClassify">
+
+            <TextView
+                style="@style/articleClassifyItem"
+                android:drawableTop="@mipmap/zhiwuzhishi"
+                android:text="@string/zhiwuzhishi" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/articleRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/article_classify_list_mt">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

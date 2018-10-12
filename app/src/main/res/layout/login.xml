@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_box_mlr"
+        android:layout_marginRight="@dimen/login_box_mlr"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--标题-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+
+        <!--手机号-->
+        <RelativeLayout style="@style/loginItemBox">
+
+            <EditText
+                android:id="@+id/phoneInput"
+                style="@style/loginInput"
+                android:hint="@string/please_input_phone"
+                android:inputType="number"
+                android:maxLength="11" />
+
+            <ImageView
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/clear" />
+
+        </RelativeLayout>
+
+        <!--验证码-->
+        <RelativeLayout
+            style="@style/loginItemBox"
+            android:layout_marginTop="@dimen/login_box_item_m">
+
+            <EditText
+                android:id="@+id/verCodeInput"
+                style="@style/loginInput"
+                android:hint="@string/please_input_ver_code"
+                android:inputType="text"
+                android:maxLength="4" />
+
+            <ImageView
+                android:id="@+id/verCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@color/white" />
+
+        </RelativeLayout>
+
+        <!--短信验证码-->
+        <RelativeLayout
+            style="@style/loginItemBox"
+            android:layout_marginTop="@dimen/login_box_item_m">
+
+            <EditText
+                android:id="@+id/msgVerCode"
+                style="@style/loginInput"
+                android:hint="@string/please_input_msg_ver_code"
+                android:inputType="number"
+                android:maxLength="6" />
+
+            <!--分割线-->
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/login_input_vertical_split_h"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/login_vertical_split_mr"
+                android:layout_toLeftOf="@+id/immediateAccess"
+                android:background="@color/white" />
+
+            <TextView
+                android:id="@+id/immediateAccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/immediateAccess"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <!--登录按钮-->
+        <TextView
+            android:id="@+id/loginBt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_input_h"
+            android:layout_marginTop="@dimen/login_box_item_m"
+            android:background="@drawable/login_bt_shape"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/login_bt_font_s" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

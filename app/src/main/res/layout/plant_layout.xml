@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:background="@drawable/title_bar_shape"
+        android:paddingLeft="@dimen/title_bar_plr"
+        android:paddingRight="@dimen/title_bar_plr">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/plantName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/search_input_m_lr"
+            android:layout_toRightOf="@+id/back"
+            android:background="@null"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_bar_font_s" />
+
+        <ImageView
+            android:id="@+id/collect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </WebView>
+
+</LinearLayout>

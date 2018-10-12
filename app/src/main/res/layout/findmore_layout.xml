@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:background="@drawable/title_bar_shape"
+        android:paddingLeft="@dimen/title_bar_plr"
+        android:paddingRight="@dimen/title_bar_plr">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/search_input_m_lr"
+            android:layout_toEndOf="@+id/back"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_bar_font_s" />
+
+    </RelativeLayout>
+
+    <!--植物列表-->
+    <GridView
+        android:id="@+id/plantGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:numColumns="3"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:visibility="gone">
+
+    </GridView>
+
+    <!--文章列表-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/articleRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

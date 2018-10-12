@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/searchPlantResultPtb"
+    android:paddingTop="@dimen/searchPlantResultPtb">
+
+    <com.zhaojy.planttudian.view.RoundImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/searchPlantItemImgWh"
+        android:layout_height="@dimen/searchPlantItemImgWh"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/plantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/searchPlantItemPlantNameMt"
+        android:textColor="@color/black"
+        android:textSize="@dimen/searchPlantItemFontS" />
+
+</LinearLayout>

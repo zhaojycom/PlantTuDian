@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/themeBk"
+    android:orientation="vertical">
+
+    <!--搜索栏-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:background="@drawable/title_bar_shape"
+        android:paddingLeft="@dimen/title_bar_plr"
+        android:paddingRight="@dimen/title_bar_plr">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back" />
+
+        <!--删除按钮-->
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/exit"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/keyword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/search_input_m_lr"
+            android:layout_marginRight="@dimen/search_input_m_lr"
+            android:layout_toLeftOf="@+id/delete"
+            android:layout_toRightOf="@+id/back"
+            android:background="@null"
+            android:hint="@string/search_plant_article"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_bar_font_s" />
+
+    </RelativeLayout>
+
+    <!--结果列表-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--植物搜索结果列表-->
+            <LinearLayout
+                android:id="@+id/plantBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!--植物标题-->
+                <TextView
+                    style="@style/searchResultTitle"
+                    android:text="@string/plant2" />
+
+                <!--植物列表-->
+                <com.zhaojy.planttudian.view.NoScrollGridView
+                    android:id="@+id/plantGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:numColumns="3"
+                    android:overScrollMode="never"
+                    android:paddingBottom="@dimen/searchPlantResultPtb"
+                    android:paddingTop="@dimen/searchPlantResultPtb"
+                    android:scrollbars="none"
+                    android:stretchMode="columnWidth">
+
+                </com.zhaojy.planttudian.view.NoScrollGridView>
+
+                <!--分割线-->
+                <include layout="@layout/search_split_line" />
+
+                <!--查看更多-->
+                <TextView
+                    android:id="@+id/plantFindMore"
+                    style="@style/searchFindMore" />
+
+            </LinearLayout>
+
+            <!--文章搜索结果列表-->
+            <LinearLayout
+                android:id="@+id/articleBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!--文章标题-->
+                <TextView
+                    style="@style/searchResultTitle"
+                    android:text="@string/article2" />
+
+                <!--文章列表-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/articleRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:scrollbars="none">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <!--查看更多-->
+                <TextView
+                    android:id="@+id/articleFindMore"
+                    style="@style/searchFindMore" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

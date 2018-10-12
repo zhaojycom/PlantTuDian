@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/article_item_mb"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/article_item_p">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:orientation="vertical">
+
+        <!--文章类型-->
+        <TextView
+            android:id="@+id/articleSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="—— 文章类型 ——"
+            android:textSize="@dimen/article_item_type_font_s" />
+
+        <!--图片-->
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/article_item_img_h"
+            android:layout_marginBottom="@dimen/article_item_big_m"
+            android:layout_marginTop="@dimen/article_item_mini_m"
+            android:scaleType="fitXY" />
+
+        <!--标题-->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/article_item_mini_m"
+            android:textColor="@color/black"
+            android:textSize="@dimen/article_item_title_font_s" />
+
+        <!--内容截取-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/article_item_mini_m"
+            android:textSize="@dimen/article_item_brief_content_font_s"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

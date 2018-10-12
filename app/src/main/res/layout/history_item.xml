@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/historyItemMb"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/historyItemPtb"
+    android:paddingLeft="@dimen/title_bar_plr"
+    android:paddingRight="@dimen/title_bar_plr"
+    android:paddingTop="@dimen/historyItemPtb">
+
+    <com.zhaojy.planttudian.view.RoundImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/historyImgWh"
+        android:layout_height="@dimen/historyImgWh" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/title_bar_plr"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/theme" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

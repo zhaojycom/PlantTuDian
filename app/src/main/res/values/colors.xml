@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#5fe6b3</color>
+
+    <color name="theme">#5fe6b3</color>
+    <color name="tab_checked">#5fe6b3</color>
+    <color name="tab_unchecked">#ababab</color>
+    <color name="themeBk">#f2f2f2</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="mainpage_tools_font">#555</color>
+    <color name="search_box_font">#aaa</color>
+
+</resources>

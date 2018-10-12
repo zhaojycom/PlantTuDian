@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!--搜索栏-->
+    <RelativeLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/classify_search_bar_h"
+            android:layout_centerInParent="true"
+            android:background="@drawable/classify_searchbar_shape"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/classify_search_box_plr"
+            android:paddingRight="@dimen/classify_search_box_plr">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/classify_search_box_plr"
+                android:src="@mipmap/search_mini" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/please_input_plant_name"
+                android:textColor="@color/search_box_font" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!--分割线-->
+    <View
+        android:id="@+id/splitLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/searchBar"
+        android:background="@color/themeBk" />
+
+    <!--左侧分类栏-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/leftClassify"
+        android:layout_width="@dimen/classifyLeftWidth"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/splitLine"
+        android:background="@color/themeBk"
+        android:scrollbars="none">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <!--右侧内容-->
+    <GridView
+        android:id="@+id/rightContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/splitLine"
+        android:layout_toEndOf="@+id/leftClassify"
+        android:background="@color/white"
+        android:numColumns="3"
+        android:overScrollMode="never"
+        android:paddingLeft="@dimen/plantGridViewP"
+        android:paddingRight="@dimen/plantGridViewP"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth">
+
+    </GridView>
+
+</RelativeLayout>

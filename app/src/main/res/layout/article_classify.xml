@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/themeBk"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titleBarH"
+        android:background="@drawable/title_bar_shape"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/title_bar_plr"
+        android:paddingRight="@dimen/title_bar_plr">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/classifyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_input_m_lr"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_bar_font_s" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/articleRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/article_classify_list_mt">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

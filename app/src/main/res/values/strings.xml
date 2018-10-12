@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">植物图典</string>
+    <string name="mainPage">首页</string>
+    <string name="classify">分类</string>
+    <string name="my">我</string>
+    <string name="plant">植物</string>
+    <string name="plant2">植 物</string>
+    <string name="article">文章</string>
+    <string name="article2">文 章</string>
+    <string name="search">搜索</string>
+    <string name="wantu">玩图</string>
+    <string name="collect">收藏\n0</string>
+    <string name="history">足迹\n0</string>
+    <string name="pleaseLogin">请登录</string>
+    <string name="login">登录</string>
+    <string name="please_input_phone">请输入手机号</string>
+    <string name="please_input_ver_code">请输入4位图形验证码</string>
+    <string name="please_input_msg_ver_code">请输入短信验证码</string>
+    <string name="search_plant_article">搜索  植物/文章</string>
+    <string name="please_input_plant_name">请输入植物名称</string>
+    <string name="loading">数据加载中...</string>
+    <string name="immediateAccess">立即获取</string>
+    <string name="recommendArticle">推荐文章</string>
+    <string name="zhiwuzhongzhi">植物种植</string>
+    <string name="quweizhiwu">趣味植物</string>
+    <string name="zhiwuzixun">植物资讯</string>
+    <string name="zhiwuzhishi">植物知识</string>
+    <string name="findMore">查看更多</string>
+    <string name="set">设置</string>
+    <string name="exitLogin">退出登录</string>
+
+</resources>
