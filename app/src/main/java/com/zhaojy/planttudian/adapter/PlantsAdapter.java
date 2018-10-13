@@ -1,6 +1,7 @@
 package com.zhaojy.planttudian.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.zhaojy.planttudian.R;
 import com.zhaojy.planttudian.bean.Plant;
 
@@ -70,7 +73,7 @@ public class PlantsAdapter extends BaseAdapter {
             view = LayoutInflater.from(context)
                     .inflate(R.layout.plant_item, viewGroup, false);
             holder = new PlantsAdapter.Holder(view);
-            WeakReference<ImageView> imageViewReference = new WeakReference<>(holder.plantImg);
+            final WeakReference<ImageView> imageViewReference = new WeakReference<>(holder.plantImg);
 
             String name = plant.getPlantName();
             if (name.length() > 7) {
@@ -81,9 +84,15 @@ public class PlantsAdapter extends BaseAdapter {
 
             Glide.with(context)
                     .load(plant.getImgUrl())
+                    .asBitmap()
                     .placeholder(R.mipmap.icon)
                     .centerCrop()
-                    .into(imageViewReference.get());
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            imageViewReference.get().setImageBitmap(resource);
+                        }
+                    });
 
             view.setTag(holder);
             viewMap.put(position, view);
