@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/searchPlantResultPtb"
     android:paddingTop="@dimen/searchPlantResultPtb">
 
-    <ImageView
+    <com.zhaojy.planttudian.view.RoundImageView
         android:id="@+id/plantImg"
         android:layout_width="@dimen/plantItemImgWh"
         android:layout_height="@dimen/plantItemImgWh"

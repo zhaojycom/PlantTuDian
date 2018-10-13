@@ -25,6 +25,7 @@ import com.zhaojy.planttudian.data.plant.GetPlantByIdPresenter;
 import com.zhaojy.planttudian.ui.activity.ArticleDetailActivity;
 import com.zhaojy.planttudian.ui.activity.PlantActivity;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -118,13 +119,15 @@ public class CollectAdapter extends
                 if (null != article) {
                     holder.title.setText(article.getTitle());
                     holder.sort.setText("[" + Strings.ARTICLE + "]");
+                    final WeakReference<ImageView> imageViewWeakReference =
+                            new WeakReference<>(holder.img);
                     Glide.with(context)
                             .load(article.getImgUrl())
                             .asBitmap()
                             .into(new SimpleTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                                    holder.img.setImageBitmap(resource);
+                                    imageViewWeakReference.get().setImageBitmap(resource);
                                 }
                             });
 
@@ -169,13 +172,15 @@ public class CollectAdapter extends
                 if (null != plant) {
                     holder.title.setText(plant.getPlantName());
                     holder.sort.setText("[" + Strings.PLANT + "]");
+                    final WeakReference<ImageView> imageViewWeakReference =
+                            new WeakReference<>(holder.img);
                     Glide.with(context)
                             .load(plant.getImgUrl())
                             .asBitmap()
                             .into(new SimpleTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                                    holder.img.setImageBitmap(resource);
+                                    imageViewWeakReference.get().setImageBitmap(resource);
                                 }
                             });
 

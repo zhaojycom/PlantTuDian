@@ -8,7 +8,7 @@
     <dimen name="mainpage_tools_ptb">10dp</dimen>
     <dimen name="mainpage_tools_item_p">4dp</dimen>
     <dimen name="my_banner_h">180dp</dimen>
-    <dimen name="avatar_hw">42dp</dimen>
+    <dimen name="avatar_hw">48dp</dimen>
     <dimen name="avatar_mlb">14dp</dimen>
     <dimen name="nickname_ml_avatar">6dp</dimen>
     <dimen name="myIndicatorH">2dp</dimen>

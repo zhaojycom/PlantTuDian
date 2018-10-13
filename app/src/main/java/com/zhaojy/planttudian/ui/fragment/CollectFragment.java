@@ -67,6 +67,13 @@ public class CollectFragment extends BaseFragment {
         } else if (User.getInstance().isUserChange()) {
             //如果账号发生改变
             init();
+        } else {
+            if (collectList != null && adapter != null) {
+                collectList.clear();
+                adapter.notifyDataSetChanged();
+                collectPresenter.reset();
+                collectPresenter.readCollect();
+            }
         }
     }
 

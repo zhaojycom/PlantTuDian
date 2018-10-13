@@ -23,6 +23,7 @@
                 android:id="@+id/avatar"
                 android:layout_width="@dimen/avatar_hw"
                 android:layout_height="@dimen/avatar_hw"
+                android:scaleType="fitXY"
                 android:src="@mipmap/icon" />
 
             <TextView
@@ -32,7 +33,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/nickname_ml_avatar"
                 android:layout_toRightOf="@id/avatar"
-                android:text="淋雨心晴"
+                android:text=""
                 android:textColor="@color/white" />
 
         </RelativeLayout>

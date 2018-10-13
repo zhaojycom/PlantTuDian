@@ -79,6 +79,13 @@ public class HistoryFragment extends BaseFragment {
         } else if (User.getInstance().isUserChange()) {
             //如果账号发生改变
             init();
+        } else {
+            if (historyList != null && adapter != null) {
+                historyList.clear();
+                adapter.notifyDataSetChanged();
+                historyPresenter.reset();
+                historyPresenter.readHistory();
+            }
         }
     }
 
