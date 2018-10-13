@@ -164,6 +164,9 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
         } else if (User.getInstance().isUserChange()) {
             //如果账号发生改变
             init();
+        } else {
+            getHistoryCount();
+            getCollectCount();
         }
     }
 
