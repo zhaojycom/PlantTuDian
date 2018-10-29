@@ -90,7 +90,9 @@ public class PlantsAdapter extends BaseAdapter {
                     .into(new SimpleTarget<Bitmap>() {
                         @Override
                         public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                            imageViewReference.get().setImageBitmap(resource);
+                            if (resource != null) {
+                                imageViewReference.get().setImageBitmap(resource);
+                            }
                         }
                     });
 

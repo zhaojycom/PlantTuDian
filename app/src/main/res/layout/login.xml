@@ -51,7 +51,8 @@
         <!--验证码-->
         <RelativeLayout
             style="@style/loginItemBox"
-            android:layout_marginTop="@dimen/login_box_item_m">
+            android:layout_marginTop="@dimen/login_box_item_m"
+            android:paddingRight="0dp">
 
             <EditText
                 android:id="@+id/verCodeInput"
@@ -60,12 +61,20 @@
                 android:inputType="text"
                 android:maxLength="4" />
 
-            <ImageView
-                android:id="@+id/verCode"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@color/white" />
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/vercode_shape">
+
+                <com.zhaojy.planttudian.view.RoundImageView
+                    android:id="@+id/verCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:xhradius="@dimen/vercodeRadius"
+                    app:xhtype="fillet" />
+
+            </LinearLayout>
 
         </RelativeLayout>
 
