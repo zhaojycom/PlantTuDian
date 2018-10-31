@@ -58,7 +58,7 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
     /**
      * 滚动监听时间间隔
      */
-    private final static int SCROLL_LISTENER_GAP = 1000;
+    private final static int SCROLL_LISTENER_GAP = 500;
     /**
      * gridView滚动监听handler code
      */
