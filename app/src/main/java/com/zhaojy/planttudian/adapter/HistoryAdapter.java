@@ -117,7 +117,10 @@ public class HistoryAdapter extends
             public void onSuccess(Object object) {
                 final Article article = (Article) object;
                 if (null != article) {
-                    holder.title.setText(article.getTitle());
+                    if (null != article.getTitle()) {
+                        holder.title.setText(article.getTitle());
+                    }
+
                     holder.sort.setText("[" + Strings.ARTICLE + "]");
                     final WeakReference<ImageView> imageViewWeakReference =
                             new WeakReference<>(holder.img);
@@ -182,7 +185,9 @@ public class HistoryAdapter extends
                             .into(new SimpleTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                                    imageViewWeakReference.get().setImageBitmap(resource);
+                                    if (imageViewWeakReference.get() != null && resource != null) {
+                                        imageViewWeakReference.get().setImageBitmap(resource);
+                                    }
                                 }
                             });
 

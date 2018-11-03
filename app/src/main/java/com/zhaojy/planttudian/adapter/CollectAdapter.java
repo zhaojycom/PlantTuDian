@@ -183,7 +183,9 @@ public class CollectAdapter extends
                             .into(new SimpleTarget<Bitmap>() {
                                 @Override
                                 public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                                    imageViewWeakReference.get().setImageBitmap(resource);
+                                    if (imageViewWeakReference.get() != null && resource != null) {
+                                        imageViewWeakReference.get().setImageBitmap(resource);
+                                    }
                                 }
                             });
 
