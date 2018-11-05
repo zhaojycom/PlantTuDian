@@ -11,8 +11,9 @@ import android.widget.ScrollView;
 
 public class ObservableScrollView extends ScrollView {
     private OnScollChangedListener onScollChangedListener = null;
+    protected int x, y, oldx, oldy;
 
-    public ObservableScrollView(Context context) {
+    public ObservableScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context);
     }
 
@@ -32,6 +33,10 @@ public class ObservableScrollView extends ScrollView {
     @Override
     protected void onScrollChanged(int x, int y, int oldx, int oldy) {
         super.onScrollChanged(x, y, oldx, oldy);
+        this.x=x;
+        this.y=y;
+        this.oldx=oldx;
+        this.oldy=oldy;
         if (onScollChangedListener != null) {
             onScollChangedListener.onScrollChanged(this, x, y, oldx, oldy);
         }

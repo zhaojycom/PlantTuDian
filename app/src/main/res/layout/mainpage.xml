@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhaojy.planttudian.view.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <!--轮播图-->
@@ -14,7 +15,8 @@
             android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="@dimen/banner_h"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            app:layout_scrollFlags="scroll" />
 
         <!--工具栏-->
         <LinearLayout
@@ -71,21 +73,15 @@
 
         </LinearLayout>
 
-        <!--文章列表-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    </android.support.design.widget.AppBarLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/articleRecycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/article_m_t">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/articleRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/article_m_t"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            </android.support.v7.widget.RecyclerView>
+    </android.support.v7.widget.RecyclerView>
 
-        </RelativeLayout>
-
-    </LinearLayout>
-
-</com.zhaojy.planttudian.view.ObservableScrollView>
+</android.support.design.widget.CoordinatorLayout>

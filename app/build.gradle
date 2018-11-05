@@ -54,8 +54,8 @@ dependencies {
     /*RxJava銆丷xAndroid*/
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
-
     /*照片选择框架*/
     implementation 'com.github.zhaojycom:PhotoSelect:1.3'
-
+    /*CoordinatorLayout*/
+    implementation 'com.android.support:design:27.1.1'
 }

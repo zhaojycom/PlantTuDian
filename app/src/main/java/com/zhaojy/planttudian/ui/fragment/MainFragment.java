@@ -1,5 +1,6 @@
 package com.zhaojy.planttudian.ui.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ import com.zhaojy.planttudian.ui.activity.ArticleActivity;
 import com.zhaojy.planttudian.ui.activity.ArticleDetailActivity;
 import com.zhaojy.planttudian.ui.activity.SearchActivity;
 import com.zhaojy.planttudian.ui.activity.WanTuActivity;
-import com.zhaojy.planttudian.view.ObservableScrollView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +44,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     private View root;
     private Banner banner;
     private List<String> images;
-    private ObservableScrollView scrollView;
     private RecyclerView articleRecycler;
     private RelativeLayout search;
     private RelativeLayout wantu;
@@ -111,14 +110,12 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         getBannerImgList();
         //设置分类文章presenter
         setClssifyArticleListPresenter();
-        //设置scrollView
-        setScrollView();
         //设置监听器
         setListener();
     }
 
     private void findViewById() {
-        scrollView = root.findViewById(R.id.scrollView);
+
         banner = root.findViewById(R.id.banner);
         articleRecycler = root.findViewById(R.id.articleRecycler);
         search = root.findViewById(R.id.search);
@@ -149,6 +146,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     /**
      * 设置文章列表
      */
+    @SuppressLint("ClickableViewAccessibility")
     private void setArticleRecycler() {
         if (articleList == null) {
             articleList = new ArrayList<>();
@@ -176,20 +174,24 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 
         });
 
-        //设置布局管理器
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false) {
-            @Override
-            public boolean canScrollVertically() {
-                //禁止滚动
-                return false;
-            }
-        };
-
-        articleRecycler.setLayoutManager(linearLayoutManager);
+        articleRecycler.setLayoutManager(new LinearLayoutManager(getActivity()
+                , LinearLayoutManager.VERTICAL, false));
         //如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
         // articleRecycler.setHasFixedSize(true);
         articleRecycler.setAdapter(articleAdapter);
+        //RecyclerView滚动监听
+        articleRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (recyclerView.computeVerticalScrollExtent() + recyclerView.computeVerticalScrollOffset() >= recyclerView.computeVerticalScrollRange()) {
+                    //滑动到底部，继续加载
+                    articlesPresenter.getArticleList();
+                }
+
+            }
+
+        });
+
     }
 
     /**
@@ -222,26 +224,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         });
         gbip.onCreate();
         gbip.getBannerImgList();
-    }
-
-    /**
-     * 设置scrollView
-     */
-    private void setScrollView() {
-        scrollView.setOnScollChangedListener(new ObservableScrollView.OnScollChangedListener() {
-            @Override
-            public void onScrollChanged(ObservableScrollView scrollView,
-                                        int x, int y, int oldx, int oldy) {
-
-            }
-
-            @Override
-            public void onScrollToFooter(ObservableScrollView scrollView
-                    , int x, int y, int oldx, int oldy) {
-                //滑动到底部继续加载数据
-                articlesPresenter.getArticleList();
-            }
-        });
     }
 
     /**
