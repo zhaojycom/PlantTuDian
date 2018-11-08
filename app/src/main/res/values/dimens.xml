@@ -74,5 +74,6 @@
     <dimen name="historyItemPtb">10dp</dimen>
     <dimen name="historyItemMb">1dp</dimen>
     <dimen name="vercodeRadius">20dp</dimen>
+    <dimen name="wantuDownloadMrb">24dp</dimen>
 
 </resources>

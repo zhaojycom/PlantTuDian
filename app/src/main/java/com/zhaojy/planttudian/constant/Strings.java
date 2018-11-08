@@ -1,5 +1,7 @@
 package com.zhaojy.planttudian.constant;
 
+import android.os.Environment;
+
 /**
  * @author: zhaojy
  * @data:On 2018/9/28.
@@ -49,4 +51,7 @@ public class Strings {
     public final static String HISTORY = "足迹";
     public final static String LOGIN_SUCCESS = "登录成功";
     public final static String LOGIN_FAILURE = "登录失败";
+    public final static String SD_ROOT = Environment.getExternalStorageDirectory() + "/PlantTuDian";
+    public final static String SD_WANTU = "/WanTu";
+    public final static String SAVE_SUCCESS = "保存成功";
 }
