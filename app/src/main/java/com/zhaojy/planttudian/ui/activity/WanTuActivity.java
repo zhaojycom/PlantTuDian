@@ -36,7 +36,7 @@ public class WanTuActivity extends BaseActivity {
     /**
      * 滚动监听时间间隔
      */
-    private final static int SCROLL_LISTENER_GAP = 1000;
+    private final static int SCROLL_LISTENER_GAP = 100;
     /**
      * gridView滚动监听handler code
      */
@@ -113,7 +113,7 @@ public class WanTuActivity extends BaseActivity {
                 Intent intent = new Intent(WanTuActivity.this
                         , WanTuDetailActivity.class);
                 intent.putExtra(WanTuDetailActivity.IMG_URL,
-                        wanTuBeanList.get(position).getsImgUrl());
+                        wanTuBeanList.get(position).getbImgUrl());
                 startActivity(intent);
             }
         });

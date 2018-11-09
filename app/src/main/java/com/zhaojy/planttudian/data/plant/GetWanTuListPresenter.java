@@ -36,11 +36,11 @@ public class GetWanTuListPresenter implements Presenter {
     /**
      * 每次读取数据条数
      */
-    private final static int LIMIT = 2;
+    private final static int LIMIT = 4;
     /**
      * 初次读取数据条数
      */
-    private final static int FIRST_LIMIT = 8;
+    private final static int FIRST_LIMIT = 10;
     /**
      * 读取数据的偏移量
      */

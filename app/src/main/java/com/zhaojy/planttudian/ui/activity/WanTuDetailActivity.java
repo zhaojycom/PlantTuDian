@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.zhaojy.planttudian.R;
 import com.zhaojy.planttudian.constant.Strings;
 import com.zhaojy.planttudian.helper.StatusBarHelper;
@@ -28,7 +29,7 @@ public class WanTuDetailActivity extends BaseActivity {
     private final static String TAG = WanTuDetailActivity.class.getSimpleName();
     public final static String IMG_URL = "imgUrl";
 
-    private ImageView img;
+    private PhotoView img;
     private String imgUrl;
     private ImageView download;
     /**
@@ -89,6 +90,9 @@ public class WanTuDetailActivity extends BaseActivity {
                     public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
                         bitmap = resource;
                         img.setImageBitmap(resource);
+                        //设置最大最小缩放比例
+                        img.setMinimumScale(0.5f);
+                        img.setMaximumScale(3.0f);
                     }
                 });
 
