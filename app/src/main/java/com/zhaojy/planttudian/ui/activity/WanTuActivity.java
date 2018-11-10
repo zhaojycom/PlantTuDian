@@ -73,7 +73,6 @@ public class WanTuActivity extends BaseActivity {
         //设置状态栏字体颜色为深色
         StatusBarHelper.statusBarLightMode(this, StatusBarHelper.ANDROID_M);
         init();
-
     }
 
     @Override
@@ -114,6 +113,8 @@ public class WanTuActivity extends BaseActivity {
                         , WanTuDetailActivity.class);
                 intent.putExtra(WanTuDetailActivity.IMG_URL,
                         wanTuBeanList.get(position).getbImgUrl());
+                intent.putExtra(WanTuDetailActivity.TITLE,
+                        wanTuBeanList.get(position).getTitle());
                 startActivity(intent);
             }
         });

@@ -75,5 +75,7 @@
     <dimen name="historyItemMb">1dp</dimen>
     <dimen name="vercodeRadius">20dp</dimen>
     <dimen name="wantuDownloadMrb">24dp</dimen>
+    <dimen name="wantuTitleFontS">18sp</dimen>
+    <dimen name="wantuTitleMb">120dp</dimen>
 
 </resources>

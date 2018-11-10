@@ -10,6 +10,18 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY" />
 
+    <!--标题-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/wantuTitleMb"
+        android:layout_marginLeft="@dimen/title_bar_plr"
+        android:layout_marginRight="@dimen/title_bar_plr"
+        android:textColor="@color/white"
+        android:textSize="@dimen/wantuTitleFontS" />
+
     <!--下载图标-->
     <ImageView
         android:id="@+id/download"
@@ -20,5 +32,14 @@
         android:layout_marginBottom="@dimen/wantuDownloadMrb"
         android:layout_marginRight="@dimen/wantuDownloadMrb"
         android:src="@mipmap/download" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 </RelativeLayout>
