@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.graphics.Palette;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -15,10 +18,11 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.zhaojy.planttudian.R;
 import com.zhaojy.planttudian.constant.Strings;
-import com.zhaojy.planttudian.helper.StatusBarHelper;
 import com.zhaojy.planttudian.utils.BitmapUtils;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: zhaojy
@@ -28,14 +32,19 @@ import java.io.File;
 public class WanTuDetailActivity extends BaseActivity {
     private final static String TAG = WanTuDetailActivity.class.getSimpleName();
     public final static String IMG_URL = "imgUrl";
+    public final static String TITLE = "title";
 
     private PhotoView img;
     private String imgUrl;
     private ImageView download;
+    private TextView title;
+    private String titleStr;
     /**
      * 保存加载图片的bitmap
      */
     private Bitmap bitmap = null;
+    private List<Palette.Swatch> swatchList;
+    private LinearLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +52,8 @@ public class WanTuDetailActivity extends BaseActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.wantu_detail);
         //设置状态栏字体颜色为深色
-        StatusBarHelper.statusBarLightMode(this, StatusBarHelper.ANDROID_M);
+        //StatusBarHelper.statusBarLightMode(this, StatusBarHelper.ANDROID_M);
         init();
-
     }
 
     @Override
@@ -60,6 +68,8 @@ public class WanTuDetailActivity extends BaseActivity {
         getIntentInfo();
         //设置图片
         setImg();
+        //设置标题
+        setTitle();
         //设置监听器
         setListener();
     }
@@ -67,6 +77,8 @@ public class WanTuDetailActivity extends BaseActivity {
     private void findViewById() {
         img = findViewById(R.id.img);
         download = findViewById(R.id.download);
+        title = findViewById(R.id.title);
+        container = findViewById(R.id.container);
     }
 
     /**
@@ -75,6 +87,7 @@ public class WanTuDetailActivity extends BaseActivity {
     private void getIntentInfo() {
         Intent intent = getIntent();
         imgUrl = intent.getStringExtra(IMG_URL);
+        titleStr = intent.getStringExtra(TITLE);
     }
 
     /**
@@ -93,9 +106,64 @@ public class WanTuDetailActivity extends BaseActivity {
                         //设置最大最小缩放比例
                         img.setMinimumScale(0.5f);
                         img.setMaximumScale(3.0f);
+
+                        //获取调色板
+                        getPalette();
+
                     }
                 });
 
+    }
+
+    /**
+     * 获取调色板
+     */
+    private void getPalette() {
+        // Asynchronous
+        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+
+                if (palette != null) {
+                    //有活力的，暗色
+                    Palette.Swatch vibrantDark = palette.getDarkVibrantSwatch();
+                    //有活力的
+                    Palette.Swatch vibrant = palette.getVibrantSwatch();
+                    //有活力的，亮色
+                    Palette.Swatch vibrantLight = palette.getLightVibrantSwatch();
+                    //柔和的，暗色
+                    Palette.Swatch mutedDark = palette.getDarkMutedSwatch();
+                    //柔和的
+                    Palette.Swatch muted = palette.getMutedSwatch();
+                    //柔和的,亮色
+                    Palette.Swatch mutedLight = palette.getLightMutedSwatch();
+
+                    swatchList = new ArrayList<>();
+                    swatchList.add(vibrantDark);
+                    swatchList.add(vibrant);
+                    swatchList.add(vibrantLight);
+                    swatchList.add(mutedDark);
+                    swatchList.add(muted);
+                    swatchList.add(mutedLight);
+
+                    for (Palette.Swatch swatch : swatchList) {
+                        //设置状态栏颜色
+                        if (swatch != null) {
+                            WanTuDetailActivity.super.setStatusBarThemeColor(swatch.getRgb());
+                            break;
+                        }
+                    }
+
+                }
+            }
+        });
+    }
+
+    /**
+     * 设置标题
+     */
+    private void setTitle() {
+        title.setText(titleStr);
     }
 
     /**
