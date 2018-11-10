@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
@@ -242,6 +243,11 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
                 int loadSum = articles.size();
                 int startPos = total - loadSum;
                 articleAdapter.notifyItemRangeInserted(startPos, loadSum);
+
+                if (loadSum == 0) {
+                    //没有更多了
+                    Toast.makeText(getActivity(), Strings.NO_NORE, Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

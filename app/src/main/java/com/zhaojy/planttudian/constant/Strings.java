@@ -54,4 +54,5 @@ public class Strings {
     public final static String SD_ROOT = Environment.getExternalStorageDirectory() + "/PlantTuDian";
     public final static String SD_WANTU = "/WanTu";
     public final static String SAVE_SUCCESS = "保存成功";
+    public final static String NO_NORE = "没有更多了";
 }
