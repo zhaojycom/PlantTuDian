@@ -49,6 +49,7 @@ public class CancelCollectPresenter implements Presenter {
     public void onStop() {
         if (mCompositeSubscription.hasSubscriptions()) {
             mCompositeSubscription.unsubscribe();
+            mCompositeSubscription.clear();
         }
     }
 

@@ -53,6 +53,7 @@ public class CollectPresenter implements Presenter {
     public void onStop() {
         if (mCompositeSubscription.hasSubscriptions()) {
             mCompositeSubscription.unsubscribe();
+            mCompositeSubscription.clear();
         }
     }
 

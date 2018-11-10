@@ -177,8 +177,9 @@ public class ClassifyFragment extends BaseFragment implements View.OnClickListen
                     plantList.clear();
 
                     curSelectClassifyId = leftClassifyList.get(position).getId();
+                    //停止未完成的网络请求
+                    plantsPresenter.onStop();
                     setRightContent();
-                    plantsPresenter.getClassifyPlantList();
                 }
             }
 

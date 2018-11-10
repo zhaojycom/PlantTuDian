@@ -40,6 +40,7 @@ public class RetrofitHelper {
                 .addConverterFactory(factory)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+
     }
 
     public RetrofitService getServer() {

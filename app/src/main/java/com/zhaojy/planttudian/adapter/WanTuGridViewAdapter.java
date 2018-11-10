@@ -73,6 +73,7 @@ public class WanTuGridViewAdapter extends BaseAdapter {
                     .load(wanTuBean.getsImgUrl())
                     .placeholder(R.mipmap.icon)
                     .centerCrop()
+                    .crossFade(800)
                     .into(imageViewReference.get());
 
             view.setTag(holder);
