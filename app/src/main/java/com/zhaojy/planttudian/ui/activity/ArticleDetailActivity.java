@@ -8,9 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.Window;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +45,7 @@ public class ArticleDetailActivity extends BaseActivity implements View.OnClickL
     private TextView title;
     private WebView webView;
     private ImageView collect;
+    private ProgressBar progressBar;
     private String titleStr;
     private String articleUrl;
     private int id;
@@ -148,6 +152,7 @@ public class ArticleDetailActivity extends BaseActivity implements View.OnClickL
         title = findViewById(R.id.title);
         webView = findViewById(R.id.webView);
         collect = findViewById(R.id.collect);
+        progressBar = findViewById(R.id.progressBar);
     }
 
     /**
@@ -244,6 +249,28 @@ public class ArticleDetailActivity extends BaseActivity implements View.OnClickL
         webSettings.setLoadWithOverviewMode(true);
         //自适应屏幕
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return false;
+            }
+
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public void onProgressChanged(WebView view, int progress) {
+
+                if (progress == 100) {
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
+
         webView.loadUrl(articleUrl);
     }
 
