@@ -51,8 +51,20 @@ public class Strings {
     public final static String HISTORY = "足迹";
     public final static String LOGIN_SUCCESS = "登录成功";
     public final static String LOGIN_FAILURE = "登录失败";
+    /**
+     * 应用sd根目录
+     */
     public final static String SD_ROOT = Environment.getExternalStorageDirectory() + "/PlantTuDian";
+    /**
+     * 玩图图片保存目录
+     */
     public final static String SD_WANTU = "/WanTu";
+    /**
+     * 崩溃日志保存目录
+     */
+    public final static String SD_CRASH = "/Crash/";
     public final static String SAVE_SUCCESS = "保存成功";
     public final static String NO_NORE = "没有更多了";
+    /* bugly app id*/
+    public final static String BUGLY_APP_ID = "58371f17fc";
 }

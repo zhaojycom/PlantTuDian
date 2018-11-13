@@ -4,6 +4,8 @@ import android.app.Application;
 import android.os.StrictMode;
 
 import com.mob.MobSDK;
+import com.tencent.bugly.crashreport.CrashReport;
+import com.zhaojy.planttudian.constant.Strings;
 
 /**
  * @author: zhaojy
@@ -22,5 +24,11 @@ public class MyApplication extends Application {
         builder.detectFileUriExposure();
         //短信验证码接口初始化
         MobSDK.init(this);
+
+        //异常日志
+        /*CrashHandler crashHandler = CrashHandler.getsInstance();
+        crashHandler.init(this);*/
+
+        CrashReport.initCrashReport(getApplicationContext(), Strings.BUGLY_APP_ID, false);
     }
 }
